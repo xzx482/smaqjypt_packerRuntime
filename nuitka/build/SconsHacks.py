@@ -186,6 +186,6 @@ def makeGccUseLinkerFile(source_dir, source_files, env):
             if os.name == "nt":
                 filename = filename.replace(os.path.sep, "/")
 
-            tmpfile.write('"%s"\n' % filename)
+            tmpfile.write('"'+filename+'"\n')
 
         tmpfile.write(env.subst("$SOURCES"))
