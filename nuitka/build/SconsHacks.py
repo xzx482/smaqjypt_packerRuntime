@@ -179,7 +179,7 @@ def makeGccUseLinkerFile(source_dir, source_files, env):
         "$SOURCES", "@%s" % env.get("ESCAPE", lambda x: x)(tmp_linker_filename)
     )
 
-    with open(tmp_linker_filename, "w",encoding='utf-8') as tmpfile:
+    with open(tmp_linker_filename, "w") as tmpfile:
         for filename in source_files:
             filename = ".".join(filename.split(".")[:-1]) + ".o"
 
