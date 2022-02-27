@@ -1,7 +1,7 @@
 import os,sys
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.join(BASE_DIR, 'nuitka'))
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print(BASE_DIR)
+sys.path.append(os.path.join(BASE_DIR))
 
 #     Copyright 2021, Kay Hayen, mailto:kay.hayen@gmail.com
 #
