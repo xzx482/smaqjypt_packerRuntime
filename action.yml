@@ -4,4 +4,4 @@ description: '配置 python 和 修改的 nuitka'
 author: 'GitHub'
 runs:
   using: 'node12'
-  main: 'dist/index.js'
+  main: 'index.js'
