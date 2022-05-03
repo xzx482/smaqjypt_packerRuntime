@@ -149,7 +149,7 @@ def _update_pot_file(target, source, env):
         # Print message employing SCons.Action.Action for that.
         msg = "Writing " + repr(str(target[0])) + " (" + explain + ")"
         env.Execute(SCons.Action.Action(nop, msg))
-        f = open(str(target[0]), "w")
+        f = open(str(target[0]), "w",encoding='utf-8')
         f.write(new_content)
         f.close()
         return 0

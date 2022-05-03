@@ -104,7 +104,7 @@ _ac_config_hs   = {}  # all config.h files created in this build
 sconf_global = None   # current sconf object
 
 def _createConfigH(target, source, env):
-    t = open(str(target[0]), "w")
+    t = open(str(target[0]), "w",encoding='utf-8')
     defname = re.sub('[^A-Za-z0-9_]', '_', str(target[0]).upper())
     t.write("""#ifndef %(DEFNAME)s_SEEN
 #define %(DEFNAME)s_SEEN
@@ -163,7 +163,7 @@ class ConfigureCacheError(SConfError):
 
 # define actions for building text files
 def _createSource( target, source, env ):
-    fd = open(str(target[0]), "w")
+    fd = open(str(target[0]), "w",encoding='utf-8')
     fd.write(source[0].get_contents().decode())
     fd.close()
 def _stringSource( target, source, env ):

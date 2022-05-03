@@ -142,7 +142,7 @@ def detectDLLsWithDependencyWalker(binary_filename, scan_dirs):
 
         # Note: Do this under lock to avoid forked processes to hold
         # a copy of the file handle on Windows.
-        with open(dwp_filename, "w") as dwp_file:
+        with open(dwp_filename, "w",encoding='utf-8') as dwp_file:
             dwp_file.write(
                 """\
 %(scan_dirs)s

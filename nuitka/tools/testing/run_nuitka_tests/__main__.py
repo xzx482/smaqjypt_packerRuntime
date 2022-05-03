@@ -461,7 +461,7 @@ def publishCoverageData():
 
         suffix = platform.uname()[0] + "." + platform.uname()[4]
 
-    with open("data.coverage", "w") as data_file:
+    with open("data.coverage", "w",encoding='utf-8') as data_file:
         source_dir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
         with withDirectoryChange(source_dir):
@@ -489,7 +489,7 @@ def publishCoverageData():
         if os.path.sep != "/":
             data.replace(os.path.sep, "/")
 
-        with open(filename, "w") as output_file:
+        with open(filename, "w",encoding='utf-8') as output_file:
             output_file.write(data)
 
     coverage_file = os.environ.get("COVERAGE_FILE", ".coverage")
@@ -631,7 +631,7 @@ def main():
         my_print("Run '%s' in '%s'." % (" ".join(parts), os.getcwd()))
 
         if hide_output:
-            with open(os.devnull, "w") as devnull:
+            with open(os.devnull, "w",encoding='utf-8') as devnull:
                 result = subprocess.call(parts, stdout=devnull)
         else:
             result = subprocess.call(parts)

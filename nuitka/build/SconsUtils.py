@@ -254,7 +254,7 @@ def addToPATH(env, dirname, prefix):
 
 
 def writeSconsReport(source_dir, env, gcc_mode, clang_mode, msvc_mode, clangcl_mode):
-    with open(os.path.join(source_dir, "scons-report.txt"), "w") as report_file:
+    with open(os.path.join(source_dir, "scons-report.txt"), "w",encoding='utf-8') as report_file:
         # We are friends to get at this debug info, pylint: disable=protected-access
         for key, value in sorted(env._dict.items()):
             if type(value) is list and all(isinstance(v, basestring) for v in value):
@@ -447,7 +447,7 @@ def makeCLiteral(value):
 def createDefinitionsFile(source_dir, filename, definitions):
     build_definitions_filename = os.path.join(source_dir, filename)
 
-    with open(build_definitions_filename, "w") as f:
+    with open(build_definitions_filename, "w",encoding='utf-8') as f:
         for key, value in sorted(definitions.items()):
             if type(value) is int:
                 f.write("#define %s %s\n" % (key, value))

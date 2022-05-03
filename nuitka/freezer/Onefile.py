@@ -127,7 +127,7 @@ for onefile creation to work on Linux."""
 
     # This might be possible to avoid being done with --runtime-file.
     apprun_filename = os.path.join(dist_dir, "AppRun")
-    with open(apprun_filename, "w") as output_file:
+    with open(apprun_filename, "w",encoding='utf-8') as output_file:
         output_file.write(
             """\
 #!/bin/bash
@@ -146,7 +146,7 @@ exec -a $ARGV0 $APPDIR/%s \"$@\""""
 
     shutil.copyfile(icon_paths[0], getResultBasepath() + extension)
 
-    with open(getResultBasepath() + ".desktop", "w") as output_file:
+    with open(getResultBasepath() + ".desktop", "w",encoding='utf-8') as output_file:
         output_file.write(
             """\
 [Desktop Entry]

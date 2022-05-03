@@ -151,7 +151,7 @@ class SearchModeResume(SearchModeBase):
         path = os.path.join(*parts)
 
         if self.active:
-            with open(self.cache_filename, "w") as f:
+            with open(self.cache_filename, "w",encoding='utf-8') as f:
                 f.write(path)
 
             return True

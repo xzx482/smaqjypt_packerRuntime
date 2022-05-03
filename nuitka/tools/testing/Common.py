@@ -205,7 +205,7 @@ def convertUsing2to3(path, force=False):
     if not force:
         with open(path) as source_file:
             if "xrange" not in source_file.read():
-                with open(os.devnull, "w") as stderr:
+                with open(os.devnull, "w",encoding='utf-8') as stderr:
                     if check_result(command, stderr=stderr):
                         return path, False
 
@@ -236,7 +236,7 @@ def convertUsing2to3(path, force=False):
 
     command += ("-w", "-n", "--no-diffs", new_path)
 
-    with open(os.devnull, "w") as devnull:
+    with open(os.devnull, "w",encoding='utf-8') as devnull:
         try:
             check_output(command, stderr=devnull)
 
@@ -251,7 +251,7 @@ def convertUsing2to3(path, force=False):
     with open(new_path) as result_file:
         data = result_file.read()
 
-    with open(new_path, "w") as result_file:
+    with open(new_path, "w",encoding='utf-8') as result_file:
         result_file.write("__file__ = %r\n" % os.path.abspath(path))
         result_file.write(data)
 
@@ -443,7 +443,7 @@ def checkCompilesNotWithCPython(dirname, filename, search_mode):
 def checkSucceedsWithCPython(filename):
     command = [_python_executable, filename]
 
-    with open(os.devnull, "w") as devnull:
+    with open(os.devnull, "w",encoding='utf-8') as devnull:
         result = subprocess.call(command, stdout=devnull, stderr=subprocess.STDOUT)
 
     return result == 0
@@ -608,7 +608,7 @@ def checkRuntimeLoadedFilesForOutsideAccesses(loaded_filenames, white_list):
 
 
 def hasModule(module_name):
-    with open(os.devnull, "w") as devnull:
+    with open(os.devnull, "w",encoding='utf-8') as devnull:
         result = subprocess.call(
             (os.environ["PYTHON"], "-c", "import %s" % module_name),
             stdout=devnull,
@@ -1303,7 +1303,7 @@ def scanDirectoryForTestCases(dirname, template_context=None):
             code = template.render(name=template.name, **template_context)
 
             filename = filename[:-3]
-            with open(filename, "w") as output:
+            with open(filename, "w",encoding='utf-8') as output:
                 output.write(
                     "'''Automatically generated test, not part of releases or git.\n\n'''\n"
                 )
@@ -1385,7 +1385,7 @@ def checkRequirements(filename):
         if line.startswith("# nuitka-skip-unless-"):
             if line[21:33] == "expression: ":
                 expression = line[33:]
-                with open(os.devnull, "w") as devnull:
+                with open(os.devnull, "w",encoding='utf-8') as devnull:
                     result = subprocess.call(
                         (
                             os.environ["PYTHON"],

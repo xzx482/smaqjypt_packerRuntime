@@ -290,7 +290,7 @@ def addConstantBlobFile(
 
         constants_generated_filename = os.path.join(source_dir, "__constants_data.c")
 
-        with open(constants_generated_filename, "w") as output:
+        with open(constants_generated_filename, "w",encoding='utf-8') as output:
             output.write(
                 """
 #define INCBIN_PREFIX
@@ -337,7 +337,7 @@ unsigned char const *getConstantsBlobData() {
         constants_generated_filename = os.path.join(source_dir, "__constants_data.c")
 
         def writeConstantsDataSource():
-            with open(constants_generated_filename, "w") as output:
+            with open(constants_generated_filename, "w",encoding='utf-8') as output:
                 if not c11_mode:
                     output.write('extern "C" {')
 

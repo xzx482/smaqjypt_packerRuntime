@@ -113,10 +113,10 @@ def main():
     with open(test_case) as f:
         case_1_source, case_2_source = generateConstructCases(f.read())
 
-    with open(test_case_1, "w") as case_1_file:
+    with open(test_case_1, "w",encoding='utf-8') as case_1_file:
         case_1_file.write(case_1_source)
 
-    with open(test_case_2, "w") as case_2_file:
+    with open(test_case_2, "w",encoding='utf-8') as case_2_file:
         case_2_file.write(case_2_source)
 
     if needs_2to3:
@@ -215,7 +215,7 @@ def main():
 
             import difflib
 
-            with open(options.diff_filename, "w") as f:
+            with open(options.diff_filename, "w",encoding='utf-8') as f:
                 with open(cpp_1) as cpp1:
                     with open(cpp_2) as cpp2:
                         f.write(

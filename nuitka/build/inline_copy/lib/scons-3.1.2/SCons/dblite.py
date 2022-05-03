@@ -238,7 +238,7 @@ def _exercise():
         assert str(e) == "Read-only database: tmp.dblite"
     else:
         raise RuntimeError("IOError expected.")
-    db = open("tmp", "w")
+    db = open("tmp", "w",encoding='utf-8')
     assert len(db) == 4
     db["ping"] = "pong"
     db.sync()
@@ -258,9 +258,9 @@ def _exercise():
     assert len(db) == 5
     db = open("tmp", "n")
     assert len(db) == 0
-    dblite._open("tmp.dblite", "w")
+    dblite._open("tmp.dblite", "w",encoding='utf-8')
     db = open("tmp", "r")
-    dblite._open("tmp.dblite", "w").write("x")
+    dblite._open("tmp.dblite", "w").write("x",encoding='utf-8')
     try:
         db = open("tmp", "r")
     except pickle.UnpicklingError:
@@ -273,7 +273,7 @@ def _exercise():
     assert len(db) == 0
     os.unlink("tmp.dblite")
     try:
-        db = open("tmp", "w")
+        db = open("tmp", "w",encoding='utf-8')
     except IOError as e:
         assert str(e) == "[Errno 2] No such file or directory: 'tmp.dblite'", str(e)
     else:

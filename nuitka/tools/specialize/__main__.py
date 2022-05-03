@@ -1798,7 +1798,7 @@ def withFileOpenedAndAutoformatted(filename):
     my_print("Creating %r ..." % filename)
 
     tmp_filename = filename + ".tmp"
-    with open(tmp_filename, "w") as output:
+    with open(tmp_filename, "w",encoding='utf-8') as output:
         yield output
 
     autoformat(tmp_filename, None, True, effective_filename=filename, trace=False)
