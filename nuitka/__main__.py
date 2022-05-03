@@ -1,4 +1,6 @@
 import os,sys
+import locale
+locale._getdefaultlocale = (lambda *args: ['en_US', 'utf8'])
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 print(BASE_DIR)
 sys.path.append(os.path.join(BASE_DIR))
